@@ -124,8 +124,11 @@ class Article < Content
 
   def merge(other_article_id)
     other_article = Article.find(other_article_id)
-    self.body += "\n" + other_article.body
-    other_article.destroy
+    self.body += "\n" + other_article.body_and_extended
+    self.published_comments += other_article.published_comments
+    if self.save then
+      other_article.destroy
+    end
   end
 
   def year_url
