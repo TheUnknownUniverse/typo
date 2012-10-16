@@ -5,9 +5,9 @@
 
 <% end %>
 <% if @UserIsAdmin then %>
-  <form id="merge_with" action="/admin/content/merge/<%=form_action[:id]%>" method="post">
+  <form id="merge_form" action="/admin/content/merge/<%=form_action[:id]%>" method="post">
     <h3>Merge Articles</h3>
-    <input name="other_article_id" type="text" value="" />
+    <input name="merge_with" type="text" value="" />
     <input name="Merge" type="submit" type="submit" value="Merge" />
   </form>
 <% end %>

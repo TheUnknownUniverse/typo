@@ -45,10 +45,10 @@ class Admin::ContentController < Admin::BaseController
       flash[:error] = _("Error, you attempted to perform an action that not allowed with your current user privileges.")
       return
     end
-    if params.include?(:other_article_id) then
-      other_article_id = Article.find(params[:other_article_id])
+    if params.include?(:merge_with) then
+      other_article_id = Article.find(params[:merge_with])
       if other_article_id != nil then
-        @article.merge(params[:other_article_id])
+        @article.merge(params[:merge_with])
       else
         redirect_to :action => 'edit', :id => params[:id]
         flash[:error] = _("Error, invalid article id.")
