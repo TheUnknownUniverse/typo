@@ -46,8 +46,37 @@ Given /^the blog is set up$/ do
                 :state => 'active'})
 end
 
-Given /^I am on the Manage articles page$/ do
-  visit '/admin/content'
+Given /^the following articles are in the database:$/ do |table|
+  # table is a Cucumber::Ast::Table
+  pending # express the regexp above with the code you wish you had
+end
+
+Given /^I merge "(.*?)" with "(.*?)"$/ do |arg1, arg2|
+  pending # express the regexp above with the code you wish you had
+end
+
+Given /^the following people are in the database:$/ do |table|
+  # table is a Cucumber::Ast::Table
+  pending # express the regexp above with the code you wish you had
+end
+
+Given /^I am not admin$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^I should see the comments of "(.*?)"$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+
+And /^the author of (.*) should be (.*)$/ do |t, a|
+  assert_equal Article.find(:title => t).author, a
+end
+
+And /^I click on (.*)$/ do |t|
+  id = Article.find(:title => t).id
+  visit '/admin/content/edit/#{id[0]}'
+end
 
 And /^I am logged into the admin panel$/ do
   visit '/accounts/login'
