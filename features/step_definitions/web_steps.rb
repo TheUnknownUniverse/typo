@@ -31,6 +31,9 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
+#Given /^I am not admin$/ do
+#  current_user.admin? == False
+
 Given /^the blog is set up$/ do
   Blog.default.update_attributes!({:blog_name => 'Teh Blag',
                                    :base_url => 'http://localhost:3000'});
@@ -42,6 +45,9 @@ Given /^the blog is set up$/ do
                 :name => 'admin',
                 :state => 'active'})
 end
+
+Given /^I am on the Manage articles page$/ do
+  visit '/admin/content'
 
 And /^I am logged into the admin panel$/ do
   visit '/accounts/login'
